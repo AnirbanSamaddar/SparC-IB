@@ -38,5 +38,5 @@ python3 train_model.py --beta 1 --K 32 --verbose --u_func_name 'pow' --eval_rate
 ```
 Note that, the above code will run the ```Fixed K:32``` model. To run for different latent dimension change the ```--K``` argument in the above code.
 
-Upon completion of all the above runs, the results will be stored in ```./results``` direcotry. 
+Upon completion of all the above runs, the results will be stored in ```./results``` directory. 
 
