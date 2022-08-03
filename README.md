@@ -1,6 +1,6 @@
 # SparC-IB
 
-Please follow the below code blocks to run the models used in the experiments section. Note that, the below codes are to run the models on MNIST dataset. Please pass ```--dataset CIFAR10``` and the correct hyperparameters from the Appendix to run the models on CIFAR-10.
+Please follow the below code blocks to run the models used in the experiments section. Note that, the below codes are to run the models on MNIST dataset. Please pass ```--dataset 'CIFAR10'``` and the correct hyperparameters from the Appendix to run the models on CIFAR-10.
 
 To run ```SparC-IB``` with compound strategy please use the below code.
 
