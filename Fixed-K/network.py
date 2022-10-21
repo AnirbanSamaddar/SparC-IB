@@ -11,7 +11,6 @@ class Deterministic_encoder(torch.nn.Module):
         self.K = K
         self.n_x = n_x
         self.network_type = network_type
-        dropout: float = 0.5
         if self.network_type == 'mlp_mnist':
             layers = []
             layers.append(torch.nn.Linear(self.n_x,800))
@@ -28,11 +27,19 @@ class Deterministic_encoder(torch.nn.Module):
             self.f_theta_lin = torch.nn.Sequential(
                 torch.nn.Linear(512 * 7 * 7, 2*self.K)
             )
+        elif self.network_type == 'mlp_ImageNet':
+            layers = []
+            layers.append(torch.nn.Linear(self.n_x,1024))
+            layers.append(torch.nn.ReLU())
+            layers.append(torch.nn.Linear(1024,1024))
+            layers.append(torch.nn.ReLU())
+            layers.append(torch.nn.Linear(1024,(2*self.K)))
+            self.f_theta = torch.nn.Sequential(*layers)
 
 
     def forward(self,x):
 
-        if self.network_type == 'mlp_mnist':
+        if self.network_type == 'mlp_mnist' or self.network_type == 'mlp_ImageNet':
             x = x.view(-1,self.n_x)
             mean_t = self.f_theta(x)
         elif self.network_type == 'mlp_CIFAR10':
@@ -62,7 +69,7 @@ class Deterministic_decoder(torch.nn.Module):
             layers.append(torch.nn.ReLU())
             layers.append(torch.nn.Linear(800,n_y))
             self.g_theta = torch.nn.Sequential(*layers)
-        elif network_type == 'mlp_CIFAR10':
+        elif network_type == 'mlp_CIFAR10' or network_type == 'mlp_ImageNet':
             self.g_theta = torch.nn.Sequential(torch.nn.Linear(self.K,n_y))
 
 
