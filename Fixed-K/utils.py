@@ -28,8 +28,7 @@ def get_mnist(d=0):
 
 
 def get_CIFAR10(d=0):
-    data_path = "/lcrc/project/FastBayes/Anirban_VI/Simulation-MNIST"
-    data_path_C10 = data_path+"/data/CIFAR10/"
+    data_path_C10 = "../data/CIFAR10/"
     mean = [0.4914, 0.4822, 0.4465]
     std = [0.2023, 0.1994, 0.2010]
     transform_train = torchvision.transforms.Compose([
