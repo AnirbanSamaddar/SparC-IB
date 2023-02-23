@@ -1,5 +1,7 @@
 # SparC-IB
 
+This repository contains scripts to implement ```SparC-IB``` from the paper [Sparsity-Inducing Categorical Prior Improves Robustness of the Information Bottleneck](https://arxiv.org/abs/2203.02592). 
+
 Please follow the below code blocks to run the models used in the experiments section. Note that, the below codes run the models on MNIST dataset. Please pass ```--dataset 'CIFAR10'``` and the correct hyperparameters from the Appendix to run the models on CIFAR-10.
 
 To run ```SparC-IB``` with compound strategy please use the below code.
