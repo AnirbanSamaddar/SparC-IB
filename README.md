@@ -8,7 +8,7 @@ To run ```SparC-IB``` with compound strategy please use the below code.
 
 ```
 cd ./SparC-IB-Compound
-python3 train_model.py --beta 1 --K 100 --a 2.0 --b 2.0 --verbose --u_func_name 'pow' --eval_rate 1 --same_batch --dataset 'MNIST' --method 'variational_IB'
+python3 train_model.py --repl_n 1 --beta 1 --K 100 --a 2.0 --b 2.0 --verbose --u_func_name 'pow' --eval_rate 1 --same_batch --dataset 'MNIST' --method 'variational_IB'
 ```
 
 To run ```SparC-IB``` with categorical strategy please use the below code.
