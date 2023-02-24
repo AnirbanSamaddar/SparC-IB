@@ -1,4 +1,4 @@
-# SparC-IB
+# Implementation of SparC-IB
 
 This repository contains scripts to implement ```SparC-IB``` from the paper [Sparsity-Inducing Categorical Prior Improves Robustness of the Information Bottleneck](https://arxiv.org/abs/2203.02592). The codes of this repository is heavily based on the [convexIB](https://github.com/burklight/convex-IB-Lagrangian-PyTorch) implementation.
 
