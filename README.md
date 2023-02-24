@@ -50,15 +50,14 @@ After running the models, to get the out-of-distribution results from the paper,
 cd ./Evaluation
 python3 Black-box.py --dataset 'mnist'
 ```
-
 **White box attacks**
 ```
 cd ./Evaluation
 python3 White-box.py --dataset 'mnist'
 ```
-
 **Rotation on MNIST**
 ```
 cd ./Evaluation
 python3 Rotation_mnist.py --dataset 'mnist'
 ```
+Running the above codes will save the output in the folder 
