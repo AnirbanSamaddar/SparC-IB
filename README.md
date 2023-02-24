@@ -1,6 +1,6 @@
 # Implementation of SparC-IB
 
-This repository contains scripts to implement ```SparC-IB``` from the paper [Sparsity-Inducing Categorical Prior Improves Robustness of the Information Bottleneck](https://arxiv.org/abs/2203.02592). The codes of this repository is heavily based on the [convexIB](https://github.com/burklight/convex-IB-Lagrangian-PyTorch) implementation.
+This repository contains scripts to implement ```SparC-IB``` from the paper [Sparsity-Inducing Categorical Prior Improves Robustness of the Information Bottleneck](https://arxiv.org/abs/2203.02592). The codes in this repository is heavily based on the [convexIB](https://github.com/burklight/convex-IB-Lagrangian-PyTorch) implementation.
 
 Please follow the below code blocks to run the models used in the experiments section. Note that, the below codes run the models on MNIST dataset. Please pass ```--dataset 'CIFAR10'``` and the correct hyperparameters from the Appendix to run the models on CIFAR-10.
 
@@ -41,5 +41,24 @@ python3 train_model.py --repl_n 1 --beta 1 --K 32 --verbose --u_func_name 'pow' 
 ```
 Note that, the above code will run the ```Fixed K:32``` model. To run for different latent dimensions please change the ```--K``` argument in the above code. Furthermore, all the above code is for one seed used in the experiments in the paper. To run the models for different seeds change the ```--repl_n``` argument. In the paper, we have used ```--repl_n 1```, ```2```, and ```3``` as three seeds for all the experiments.
 
-Upon completion of all the above runs, the results will be stored in ```./results``` directory. 
+Upon completion of all the above runs, the results will be stored in ```./results``` directory.
 
+After running the models, to get the out-of-distribution results from the paper, please run the following lines of code.
+
+**Black box attacks**
+```
+cd ./Evaluation
+python3 Black-box.py --dataset 'mnist'
+```
+
+**White box attacks**
+```
+cd ./Evaluation
+python3 White-box.py --dataset 'mnist'
+```
+
+**Rotation on MNIST**
+```
+cd ./Evaluation
+python3 Rotation_mnist.py --dataset 'mnist'
+```
