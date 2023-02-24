@@ -60,4 +60,4 @@ python3 White-box.py --dataset 'mnist'
 cd ./Evaluation
 python3 Rotation_mnist.py --dataset 'mnist'
 ```
-Running the above codes will save the output in the folder ```./results/figures/mnist/``` under the sub-folders ```PGD``, ```Whitebox```, and ```Rotation``` respectively.
+Running the above codes will save the output in the folder ```./results/figures/mnist/``` under the sub-folders ```PGD```, ```Whitebox```, and ```Rotation``` respectively.
