@@ -39,7 +39,7 @@ To run ```Fixed-K-VIB``` model please use the below code.
 cd ./Fixed-K
 python3 train_model.py --repl_n 1 --beta 1 --K 32 --verbose --u_func_name 'pow' --eval_rate 1 --same_batch --dataset 'MNIST' --method 'variational_IB'
 ```
-Note that, the above code will run the ```Fixed K:32``` model. To run for different latent dimensions please change the ```--K``` argument in the above code. Furthermore, all the above code is for one seed used in the experiments in the paper. To run the models for different seeds change ```--repl_n``` argument. In the paper, we have used ```repl_n 1```, ```2```, and ```3``` as three seeds for all the experiments.
+Note that, the above code will run the ```Fixed K:32``` model. To run for different latent dimensions please change the ```--K``` argument in the above code. Furthermore, all the above code is for one seed used in the experiments in the paper. To run the models for different seeds change the ```--repl_n``` argument. In the paper, we have used ```repl_n 1```, ```2```, and ```3``` as three seeds for all the experiments.
 
 Upon completion of all the above runs, the results will be stored in ```./results``` directory. 
 
