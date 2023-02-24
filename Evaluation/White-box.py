@@ -23,7 +23,7 @@ torch.cuda.empty_cache()
 
 model_base_dir = '../results/models/'
 figs_base_dir = '../results/figures/'
-figs_new_dir = 'whitebox/'
+figs_new_dir = 'Whitebox/'
 
 
 ########## White box attack
