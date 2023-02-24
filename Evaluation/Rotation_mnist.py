@@ -7,20 +7,22 @@ import math
 import matplotlib.pyplot as plt
 import pandas as pd
 from functions import brier_score
-sys.path.insert(0, './SparC-IB-Compound')
+sys.path.insert(0, '../SparC-IB-Compound')
 from utils import get_data,get_args
-from convexIB_7_no_dim_encoder import ConvexIB as Data_Power_VIB_comp   
-sys.path.insert(0, './SparC-IB-Categorical')
-from convexIB_7_cat_no_dim_encoder import ConvexIB as Data_Power_VIB_cat
-from convexIB_2_fixed import ConvexIB as Vanilla_Power_VIB
+from convexIB import ConvexIB as Data_Power_VIB_comp
+sys.path.remove('../SparC-IB-Compound')   
+sys.path.insert(0, '../SparC-IB-Categorical')
+from convexIB_cat import ConvexIB as Data_Power_VIB_cat
+sys.path.remove('../SparC-IB-Categorical')
+sys.path.insert(0, '../Fixed-K')
+from convexIB_fixed import ConvexIB as Vanilla_Power_VIB
 
 dev = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 torch.cuda.empty_cache()
 
-#path_src = '/mnt/home/samadda1/NSF-Project/Simulation-MNIST/src/Kdist_model_v2_compound'
-model_base_dir = './results/models/'
-figs_base_dir = './results/figures/'
+model_base_dir = '../results/models/'
+figs_base_dir = '../results/figures/'
 figs_new_dir = 'Rotation/'
 
 
@@ -37,8 +39,8 @@ models_list = ['pow_1-0_repl_' + str(args.repl_n) +'_a_1.0_b_3.0_cat_train_8_no_
                 ,'pow_1-0_repl_' + str(args.repl_n) +'_a_2.0_b_2.0_cat_train_8_no_dim_encoder/'
                 ,'pow_1-0_repl_' + str(args.repl_n) +'_a_1.0_b_3.0_compound_train_8_no_dim_encoder/'
                 ,'pow_1-0_repl_' + str(args.repl_n) +'_a_2.0_b_2.0_compound_train_8_no_dim_encoder/'
-                ,'pow_1-0_repl_' + str(args.repl_n) +'_a_2.0_b_2.0_drop_VIB_train_8/'
-                ,'pow_1-0_repl_' + str(args.repl_n) +'_a_2.0_b_2.0_intel_VIB_train_8/'
+                ,'pow_1-0_repl_' + str(args.repl_n) +'_a_1.0_b_1.0_drop_VIB_train_8/'
+                ,'pow_1-0_repl_' + str(args.repl_n) +'_a_1.0_b_1.0_intel_VIB_train_8/'
                 ,'pow_1-0_repl_' + str(args.repl_n) +'/'
                 ,'pow_1-0_repl_' + str(args.repl_n) +'/'
                 ,'pow_1-0_repl_' + str(args.repl_n) +'/'
@@ -59,7 +61,6 @@ for b_id,b in enumerate(beta):
     for model_id,model_name in enumerate(models_list):
         for i,d in enumerate(rotation_deg):
             print('Starting rotation ' + str(i) + ' model ' + str(model_id),flush=True)
-            #os.chdir(path_src)     # src folder directory
             if args.dataset == 'mnist':
                 _, validationset = get_data(args.dataset,d=d)
                 n_x = 784
@@ -172,6 +173,5 @@ os.chdir(figs_base_dir)   # figure directory
 
 np.save("Accuracy_rotate_" + str(args.repl_n),accuracy_data)
 np.save("Brier_score_rotate_" + str(args.repl_n),brier_loss)
-np.save("ECE_rotate_" + str(args.repl_n),ECE)
 np.save("LL_rotate_" + str(args.repl_n),LL)
 

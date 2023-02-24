@@ -56,7 +56,6 @@ else:
     args.models_dir += args.u_func_name + '_' + str(round(args.hyperparameter,2)).replace('.', '-') + "_repl_" + str(args.repl_n) + "_a_"+ str(args.a)+"_b_"+str(args.b) + "_" + args.method +"_train_8" + '/'
     
 os.makedirs(args.logs_dir) if not os.path.exists(args.logs_dir) else None
-os.makedirs(args.figs_dir) if not os.path.exists(args.figs_dir) else None
 os.makedirs(args.models_dir) if not os.path.exists(args.models_dir) else None
 
 # Train the network

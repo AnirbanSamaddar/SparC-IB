@@ -1,4 +1,4 @@
-from convexIB import ConvexIB
+from convexIB_fixed import ConvexIB
 from utils import get_data
 from utils import get_args
 import torch
@@ -45,7 +45,6 @@ args.logs_dir += args.u_func_name + '_' + str(round(args.hyperparameter,2)).repl
 args.figs_dir += args.u_func_name + '_' + str(round(args.hyperparameter,2)).replace('.', '-') + "_repl_" + str(args.repl_n) + '/'
 args.models_dir += args.u_func_name + '_' + str(round(args.hyperparameter,2)).replace('.', '-') + "_repl_" + str(args.repl_n) + '/'
 os.makedirs(args.logs_dir) if not os.path.exists(args.logs_dir) else None
-os.makedirs(args.figs_dir) if not os.path.exists(args.figs_dir) else None
 os.makedirs(args.models_dir) if not os.path.exists(args.models_dir) else None
 
 # Train the network
